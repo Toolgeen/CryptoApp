@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CoinDetailActivity"
+    tools:context=".presentation.CoinDetailActivity"
     android:layout_margin="10dp">
 
     <ImageView
@@ -12,6 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="20dp"
+        android:contentDescription="@string/symbol"
         android:src="@drawable/ic_baseline_money_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageViewDetailCoinLogo"
-        android:text=" / "/>
+        android:text="@string/time_separator"/>
 
     <TextView
         android:id="@+id/toSymbolTextView"
@@ -67,7 +68,6 @@
         android:id="@+id/priceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1000"
         app:layout_constraintStart_toEndOf="@id/priceLabelTextView"
         android:layout_margin="20dp"
         android:textSize="20sp"
@@ -98,7 +98,6 @@
         android:id="@+id/maxPriceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1000"
         app:layout_constraintStart_toEndOf="@id/maxPriceLabelTextView"
         android:layout_margin="20dp"
         android:textSize="20sp"
@@ -129,7 +128,6 @@
         android:id="@+id/minPriceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1000"
         app:layout_constraintStart_toEndOf="@id/minPriceLabelTextView"
         android:layout_margin="20dp"
         android:textSize="20sp"
@@ -160,7 +158,6 @@
         android:id="@+id/lastDealTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1000"
         app:layout_constraintStart_toEndOf="@id/lastDealLabelTextView"
         android:layout_margin="20dp"
         android:textSize="20sp"
@@ -191,7 +188,6 @@
         android:id="@+id/lastUpdateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1000"
         app:layout_constraintStart_toEndOf="@id/lastUpdateLabelTextView"
         android:layout_margin="20dp"
         android:textSize="20sp"

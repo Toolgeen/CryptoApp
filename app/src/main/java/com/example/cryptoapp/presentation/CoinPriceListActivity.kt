@@ -1,14 +1,13 @@
-package com.example.cryptoapp
+package com.example.cryptoapp.presentation
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cryptoapp.adapters.CoinInfoAdapter
-import com.example.cryptoapp.pojo.CoinPriceInfo
+import com.example.cryptoapp.R
+import com.example.cryptoapp.domain.CoinInfo
+import com.example.cryptoapp.presentation.adapters.CoinInfoAdapter
 
 
 class CoinPriceListActivity : AppCompatActivity() {
@@ -24,23 +23,21 @@ class CoinPriceListActivity : AppCompatActivity() {
         val recyclerViewCoinPriceList = findViewById<RecyclerView>(R.id.recyclerViewCoinPriceList)
         recyclerViewCoinPriceList.adapter = adapter
         adapter.onCoinClickListener = object: CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun onCoinClick(coinInfo: CoinInfo) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
-                    coinPriceInfo.fromSymbol
+                    coinInfo.fromSymbol
 
                 )
                 startActivity(intent)
             }
 
         }
-                viewModel = ViewModelProvider
-                    .AndroidViewModelFactory(application)
-                    .create(CoinViewModel::class.java)
-                viewModel.priceList.observe(this, Observer {
+                viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
+                viewModel.coinInfoList.observe(this) {
                     Log.d("TEST_DATA", "Success in Activity")
                     adapter.coinInfoList = it
-                })
+                }
 
     }
 }
