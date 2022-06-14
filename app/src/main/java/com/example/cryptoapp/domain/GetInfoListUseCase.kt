@@ -1,6 +1,8 @@
 package com.example.cryptoapp.domain
 
-class GetInfoListUseCase(private val repository: CoinRepository) {
+import javax.inject.Inject
+
+class GetInfoListUseCase @Inject constructor(private val repository: CoinRepository) {
 
     operator fun invoke() = repository.getCoinInfoList()
 
